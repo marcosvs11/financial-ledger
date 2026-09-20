@@ -1,11 +1,19 @@
 from interface import show_menu, show_title
-from validation import read_int
+from validation import read_description, read_amount, read_int
+from file import add_transaction, initialize_file
+
+file_name = 'financial_ledger.csv'
+initialize_file(file_name)
 
 while True:
     show_menu('Financial Ledger', ['Add income', 'Add expense', 'List transactions', 'View summary', 'Exit'])
     option = read_int('Chose an option: ')
     if option == 1:
         show_title('ADD INCOME')
+        description = read_description('Enter the income description: ')
+        amount = read_amount('Enter the amount received: R$')
+        add_transaction('income', description, amount, file_name)
+
     elif option == 2:
         show_title('ADD EXPENSE')
     elif option == 3:

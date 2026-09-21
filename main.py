@@ -16,10 +16,16 @@ while True:
 
     elif option == 2:
         show_title('ADD EXPENSE')
+        description = read_description('Enter the expense description: ')
+        amount = read_amount('Enter the amount paid: R$')
+        add_transaction('expense', description, amount, file_name)
+
     elif option == 3:
         show_title('LIST TRANSACTIONS')
+
     elif option == 4:
         show_title('VIEW SUMMARY')
+
     elif option == 5:
         show_title('EXITING...')
         break

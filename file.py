@@ -1,4 +1,5 @@
 import csv
+from decimal import Decimal
 
 def initialize_file(file_name):
     try:
@@ -42,3 +43,25 @@ def list_transactions(file_name):
 
             if transaction_found == False:
                 print('No transactions found.')
+
+def view_summary(file_name):
+    total_income = Decimal('0.00')
+    total_expense = Decimal('0.00')
+
+    with open(file_name, 'r', newline='', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            amount = Decimal(row['amount'])
+            if row['type'] == 'income':
+                total_income += amount
+            elif row['type'] == 'expense':
+                total_expense += amount
+            else:
+                print('Type invalid!')
+                return
+
+    print(f'Total amount income: R${total_income}')
+    print(f'Total amount expense: R${total_expense}')
+    balance = total_income - total_expense
+    print(f'Balance: R${balance}')

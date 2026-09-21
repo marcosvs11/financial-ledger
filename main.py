@@ -1,6 +1,6 @@
 from interface import show_menu, show_title
 from validation import read_description, read_amount, read_int
-from file import add_transaction, initialize_file
+from file import add_transaction, initialize_file, list_transactions
 
 file_name = 'financial_ledger.csv'
 initialize_file(file_name)
@@ -22,7 +22,7 @@ while True:
 
     elif option == 3:
         show_title('LIST TRANSACTIONS')
-
+        list_transactions(file_name)
     elif option == 4:
         show_title('VIEW SUMMARY')
 

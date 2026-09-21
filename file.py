@@ -26,3 +26,19 @@ def add_transaction(transaction_type, description, amount, file_name):
         writer = csv.DictWriter(file, fieldnames=columns)
         writer.writerow(transaction)
     print(f'The {transaction_type} saved successfully!')
+
+def list_transactions(file_name):
+        with open(file_name, 'r', newline='', encoding='utf-8') as file:
+            columns = ['type', 'description', 'amount']
+            print(f'{columns[0]:<11}{columns[1]:<21}{columns[2]:<9}')
+            print()
+            reader = csv.DictReader(file)
+
+            transaction_found = False
+
+            for row in reader:
+                print(f'{row['type']:<11}{row['description']:<21}R${row['amount']:<9}')
+                transaction_found = True
+
+            if transaction_found == False:
+                print('No transactions found.')

@@ -37,9 +37,11 @@ python3 --version
 
 Clone the repository and run the application from its directory:
 
+```bash
 git clone https://github.com/marcosvs11/financial-ledger.git
 cd financial-ledger
 python3 main.py
+```
 
 On the first run, the application creates financial_ledger.csv with its header if the file does not exist. Subsequent runs preserve the existing transactions.
 

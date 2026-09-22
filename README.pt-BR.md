@@ -6,7 +6,7 @@ Aplicação de terminal para acompanhar receitas e despesas pessoais. Permite ca
 
 ## Status
 
-A primeira versão funcional está implementada. Ela utiliza a biblioteca padrão do Python e inclui validação de entradas, persistência em CSV e verificações manuais documentadas em [TESTING.md](TEXTING.md).
+A primeira versão funcional está implementada. Ela utiliza a biblioteca padrão do Python e inclui validação de entradas, persistência em CSV e verificações manuais documentadas em [TESTING.md](TESTING.md).
 
 Este é um projeto de aprendizado. As limitações atuais e as possíveis melhorias estão descritas abaixo.
 
@@ -37,10 +37,11 @@ python3 --version
 
 Clone o repositório e execute a aplicação dentro da pasta do projeto:
 
+```bash
 git clone https://github.com/marcosvs11/financial-ledger.git
 cd financial-ledger
 python3 main.py
-
+```
 Na primeira execução, a aplicação cria financial_ledger.csv com o cabeçalho caso o arquivo não exista. As execuções seguintes preservam os lançamentos existentes.
 
 ## Como usar
@@ -118,7 +119,7 @@ TESTING.md -> Procedimentos dos testes manuais e resultados observados.
 
 ## Testes
 
-O [TESTING.md](TEXTING.md) documenta atualmente dois testes manuais: alinhamento de descrições longas e exibição de valores com duas casas decimais. Cada registro contém o procedimento, o resultado esperado, o resultado observado e a situação do teste.
+O [TESTING.md](TESTING.md) documenta atualmente dois testes manuais: alinhamento de descrições longas e exibição de valores com duas casas decimais. Cada registro contém o procedimento, o resultado esperado, o resultado observado e a situação do teste.
 
 Utilize dados fictícios ao repetir os testes. O repositório ainda não possui uma suíte de testes automatizados.
 

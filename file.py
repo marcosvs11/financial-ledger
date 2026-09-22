@@ -18,7 +18,7 @@ def add_transaction(transaction_type, description, amount, file_name):
     transaction = {
         'type': transaction_type,
         'description': description,
-        'amount': f'{amount:2f}',
+        'amount': amount,
     }
 
     columns = ['type', 'description', 'amount']
@@ -31,14 +31,20 @@ def add_transaction(transaction_type, description, amount, file_name):
 def list_transactions(file_name):
         with open(file_name, 'r', newline='', encoding='utf-8') as file:
             columns = ['type', 'description', 'amount']
-            print(f'{columns[0]:<11}{columns[1]:<21}{columns[2]:<9}')
+            print(f'{columns[0]:<11}{columns[1]:<22}{columns[2]:<9}')
             print()
             reader = csv.DictReader(file)
 
             transaction_found = False
 
             for row in reader:
-                print(f'{row['type']:<11}{row['description']:<21}R${row['amount']:<9}')
+
+                description = row['description']
+                amount = f'{Decimal(row['amount']):.2f}'
+
+                if len(description) > 21:
+                    description = description[:18] + '...'
+                print(f'{row['type']:<11}{description:<22}R${amount:<9}')
                 transaction_found = True
 
             if transaction_found == False:
